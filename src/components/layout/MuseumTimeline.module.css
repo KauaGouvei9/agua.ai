@@ -1,0 +1,182 @@
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: var(--space-12) auto 0;
+  padding: 0 var(--space-4);
+}
+
+/* Vertical connecting line */
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-water-bright) 8%,
+    var(--color-water-soft) 50%,
+    var(--color-water-bright) 92%,
+    transparent 100%
+  );
+  opacity: 0.25;
+  transform: translateX(-50%);
+}
+
+/* Each card */
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 50%;
+  padding-bottom: var(--space-10);
+  animation: cardReveal 0.6s var(--ease-out) var(--delay, 0s) both;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Left cards: sit on the left half, text aligned right toward center */
+.cardLeft {
+  margin-right: auto;
+  padding-right: var(--space-10);
+  flex-direction: row-reverse;
+}
+
+.cardLeft .content {
+  text-align: right;
+}
+
+/* Right cards: sit on the right half, text aligned left toward center */
+.cardRight {
+  margin-left: auto;
+  padding-left: var(--space-10);
+}
+
+/* Center dot marker */
+.marker {
+  position: absolute;
+  top: var(--space-1);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* We need the marker positioned relative to the full timeline width */
+.cardLeft .marker {
+  left: auto;
+  right: calc(-1 * var(--space-10) + -6px);
+  transform: none;
+}
+
+.cardRight .marker {
+  left: calc(-1 * var(--space-10) + -6px);
+  transform: none;
+}
+
+.markerDot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: var(--color-ocean-deep);
+  border: 2px solid var(--color-water-bright);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 12px rgba(0, 180, 216, 0.4);
+  transition: transform var(--duration-normal) var(--ease-bounce),
+              box-shadow var(--duration-normal);
+}
+
+.card:hover .markerDot {
+  transform: scale(1.4);
+  box-shadow: 0 0 24px rgba(0, 180, 216, 0.6);
+}
+
+/* Card content panel */
+.content {
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-normal),
+              box-shadow var(--duration-normal);
+  flex: 1;
+}
+
+.card:hover .content {
+  border-color: rgba(72, 202, 228, 0.3);
+  box-shadow: 0 4px 24px rgba(0, 180, 216, 0.08);
+}
+
+.step {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-extrabold);
+  color: var(--color-water-bright);
+  opacity: 0.18;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+.body {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+/* ── Mobile: stack vertically, line on the left ── */
+@media (max-width: 768px) {
+  .line {
+    left: 20px;
+    transform: none;
+  }
+
+  .card {
+    width: 100%;
+    padding-left: 52px;
+    padding-right: 0;
+    flex-direction: row;
+  }
+
+  .cardLeft {
+    flex-direction: row;
+    padding-right: 0;
+  }
+
+  .cardLeft .content,
+  .cardRight .content {
+    text-align: left;
+  }
+
+  .cardLeft .marker,
+  .cardRight .marker {
+    left: 13px;
+    right: auto;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}

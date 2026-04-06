@@ -1,0 +1,175 @@
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 1000px;
+  margin: var(--space-12) auto 0;
+}
+
+/* ── Each impact block ── */
+.block {
+  position: relative;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-10) var(--space-8);
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 40, 71, 0.45) 0%,
+    rgba(10, 22, 40, 0.6) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: border-color var(--duration-normal),
+              transform var(--duration-normal) var(--ease-out);
+  animation: blockReveal 0.7s var(--ease-out) var(--reveal-delay, 0s) both;
+}
+
+.block:hover {
+  border-color: hsla(var(--accent-hsl), 0.2);
+  transform: translateY(-2px);
+}
+
+@keyframes blockReveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flipped layout: text on left, number on right */
+.blockFlipped {
+  grid-template-columns: 1fr 160px;
+}
+
+.blockFlipped .numberCol {
+  order: 2;
+  text-align: right;
+}
+
+.blockFlipped .textCol {
+  order: 1;
+}
+
+/* ── Background decoration — organic blob ── */
+.bgShape {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50% 40% 60% 45% / 55% 50% 45% 50%;
+  background: radial-gradient(
+    circle at 40% 40%,
+    var(--accent-glow),
+    transparent 70%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.blockNormal .bgShape {
+  top: -60px;
+  right: -80px;
+}
+
+.blockFlipped .bgShape {
+  top: -60px;
+  left: -80px;
+}
+
+/* ── Label column ── */
+.numberCol {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsla(var(--accent-hsl), 0.8);
+  line-height: var(--leading-snug);
+  word-break: break-word;
+}
+
+/* ── Text column ── */
+.textCol {
+  position: relative;
+  z-index: 1;
+}
+
+.accentBar {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: hsla(var(--accent-hsl), 0.6);
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-snug);
+}
+
+.body {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+  max-width: 580px;
+}
+
+/* ── Mobile: stack vertically ── */
+@media (max-width: 768px) {
+  .block,
+  .blockFlipped {
+    grid-template-columns: 1fr;
+    padding: var(--space-8) var(--space-6);
+    gap: var(--space-4);
+  }
+
+  .blockFlipped .numberCol {
+    order: 0;
+    text-align: left;
+  }
+
+  .blockFlipped .textCol {
+    order: 0;
+  }
+
+  .title {
+    font-size: var(--text-xl);
+  }
+
+  .body {
+    font-size: var(--text-base);
+  }
+
+  .bgShape {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block {
+    animation: none;
+  }
+}

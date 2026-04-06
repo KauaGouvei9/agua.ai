@@ -1,0 +1,40 @@
+.section {
+  position: relative;
+  padding: var(--section-padding);
+  min-height: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* Variant: default (deep ocean) */
+.default {
+  background: var(--color-ocean-deep);
+}
+
+/* Variant: alt (slightly lighter) */
+.alt {
+  background: linear-gradient(
+    180deg,
+    var(--color-ocean-mid) 0%,
+    var(--color-ocean-deep) 100%
+  );
+}
+
+/* Variant: dark (darkest) */
+.dark {
+  background: linear-gradient(
+    180deg,
+    #060E1A 0%,
+    var(--color-ocean-deep) 100%
+  );
+}
