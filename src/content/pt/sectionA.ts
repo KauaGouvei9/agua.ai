@@ -14,7 +14,7 @@ export const sectionAPages = [
   },
   {
     title: 'Onde tudo fica armazenado?',
-    body: 'TBD',
+    body: 'Você conhece serviços digitais como o google, youtube e roblox, certo? Para eles funcionarem existem lugares chamados data centers. Mas afinal, o que são data centers? Podemos imaginar que o Data center é um lugar cheio de computadores que guardam e enviam tudo o que você vê na internet',
   },
   {
     title: 'Como a Inteligência Artificial parece inteligente?',
