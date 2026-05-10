@@ -6,26 +6,26 @@ export const sectionAIntro =
 export const sectionAPages = [
   {
     title: 'O que acontece por trás da internet?',
-    body: 'Quanto mais digital o mundo se torna, mais precisamos entender como cuidar melhor do nosso planeta. Imagine uma cidade muito grande feita de fios, mensagens invisíveis e computadores, em que cada computador, celular ou videogame é como uma casa dessa cidade, eles conseguem conversar entre si mandando mensagens muito rápidas, essa evento é chamado de internet, porque, ela liga muitos computadores diferentes e faz as mensagens, vídeos e jogos viajarem de um aparelho para outro muito rápido. Por isso que você consegue conversar, assistir desenhos e jogar online. Mas para os serviços que você usa na internet funcionarem existem lugares chamados data centers.',
+    body: 'Quanto mais digital o mundo fica, mais precisamos cuidar do planeta. Imagine uma cidade gigante feita de fios e mensagens invisíveis, onde cada computador, celular ou videogame é uma casa. Essas casas conversam entre si mandando mensagens super rápidas, isso é a internet, que liga todos os aparelhos e faz vídeos, jogos e conversas viajarem em segundos. Mas, para tudo isso funcionar, existem lugares especiais chamados data centers.',
   },
   {
     title: 'O que é data center?',
-    body: 'Antes mesmo de chegar em seu computador ou no seu celular, tudo o que existe na internet precisa ficar guardado em algum lugar, podemos então, imaginar que o Data center é um lugar cheio de computadores que deixa tudo guardado e enviam tudo o que você vê na internet',
+    body: 'Antes de chegar no seu computador ou celular, tudo o que existe na internet precisa ficar guardado em algum lugar. O data center é um prédio cheio de computadores que guarda e envia tudo o que você vê na internet.',
   },
   {
     title: 'Mas como computadores e Inteligência artificial consomem água?',
-    body: 'A inteligência artificial precisa de computadores muito fortes para funcionar, esses computadores ficam ligados o tempo todo para que funcionem sem parar e como eles trabalham bastante, acabam esquentando muito. Por isso, para evitar que eles quebrem e parem de funcionar, precisam ser resfriados e muitas vezes usam água para isso.',
+    body: 'A inteligência artificial precisa de computadores muito fortes, que ficam ligados o tempo todo e trabalham tanto que esquentam bastante. Para não quebrarem, eles precisam ser resfriados e, muitas vezes, é a água que faz esse trabalho.',
   },
   {
     title: 'Como a Inteligência Artificial parece inteligente?',
-    body: 'Chamada também de IA, a Inteligência Artificial aprende vendo muitos exemplos e depois usa o que aprendeu para dar respostas que fazem sentido e ajudam as pessoas. Por exemplo, a IA pode ver muitas fotos de gatos e cachorros para aprender qual é um ou outro. Depois disso, se você mostrar uma nova foto, ela consegue dizer se é um gato ou um cachorro.',
+    body: 'Chamada também de IA, ela aprende vendo muitos exemplos e depois usa o que aprendeu para responder e ajudar as pessoas. Por exemplo: mostre muitas fotos de gatos e cachorros para a IA e, depois, ela conseguirá dizer qual animal aparece em uma foto nova.',
   },
   {
     title: 'Por quê precisamos nos preocupar com consumo de água?',
-    body: 'Os data centers estão crescendo tanto que, em alguns lugares onde falta água, isso já virou um problema. È importante lembrar que a água não é infinita, ou seja, não existe uma quantidade sem fim. Por isso, quando muita água é usada de uma vez, ela pode faltar para pessoas, plantas e animais.',
+    body: 'Os data centers estão crescendo tanto que, em lugares onde já falta água, isso virou um problema. A água não é infinita: quando muita é usada de uma vez, pode faltar para pessoas, plantas e animais.',
   },
   {
     title: 'Por quê não usar a água do mar?',
-    body: 'Seria uma ideia boa que ajudaria muito o nosso planeta, mas quando a gente fala sobre usar água do mar para ajudar a resfriar os computadores dos data centers não podemos esquecer que eles precisam de muita água, se usarem água do mar, a água evapora por causa do calor e o sal que estava nela acaba ficando para trás e sobrando, isso faz com que o sal se acumule e, por exemplo, seria como se os computadores dos data centers estivessem fazendo montes de sal sem querer.',
+    body: 'Parece uma boa ideia, mas tem um detalhe: ao resfriar os computadores, a água do mar evapora com o calor e deixa o sal para trás. Esse sal vai se acumulando, como se os data centers estivessem formando montes de sal sem querer.',
   },
 ];

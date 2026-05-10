@@ -59,15 +59,18 @@ export function QuizTrail() {
 
     if (selectedOption === openQuestion.correctIndex) {
       setFeedback('correct');
-      setTimeout(() => {
-        dispatch({ type: 'ANSWER_CORRECT', index: openQuestion.id - 1 });
-        setOpenQuestion(null);
-        setFeedback(null);
-      }, 1200);
     } else {
       setFeedback('wrong');
     }
   }, [selectedOption, openQuestion]);
+
+  const handleUnderstood = useCallback(() => {
+    if (!openQuestion) return;
+    dispatch({ type: 'ANSWER_CORRECT', index: openQuestion.id - 1 });
+    setOpenQuestion(null);
+    setSelectedOption(null);
+    setFeedback(null);
+  }, [openQuestion]);
 
   const handleClose = () => {
     setOpenQuestion(null);
@@ -183,6 +186,15 @@ export function QuizTrail() {
                 disabled={selectedOption === null}
               >
                 Confirmar resposta
+              </button>
+            )}
+
+            {feedback === 'correct' && (
+              <button
+                className={styles.confirm}
+                onClick={handleUnderstood}
+              >
+                Entendi
               </button>
             )}
 
