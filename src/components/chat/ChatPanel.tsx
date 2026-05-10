@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { estimateTokens, estimateResponseTokens, estimateWaterMl, formatWater, bestEquivalence } from '../../domain/estimation';
+import { estimateTokens, getResponseTokens, estimateWaterMl, formatWater, bestEquivalence } from '../../domain/estimation';
 import { MODEL_MULTIPLIERS } from '../../domain/estimation/constants';
+import { PromptSuggestions } from './Promptsuggestions';
 import styles from './ChatPanel.module.css';
+
+// Deve ser idêntico ao texto em constants.ts → impacto_gigante → exemplos
+const FACEBOOK_TEXTO = 'Crie o Facebook 2.0 melhorado com todas as funcionalidades';
 
 interface Message {
   id: number;
@@ -12,6 +16,7 @@ interface Message {
     secondary: string;
     range: string;
     equivalence: string;
+    educationalNote?: string;
   };
 }
 
@@ -24,6 +29,7 @@ export function ChatPanel() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [model, setModel] = useState('chatgpt');
+  const [taskKey, setTaskKey] = useState('chat_simples');
   const [loading, setLoading] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -51,18 +57,25 @@ export function ChatPanel() {
 
     const delay = 800 + Math.random() * 400;
     setTimeout(() => {
-      const promptTokens = estimateTokens(text);
-      const responseTokens = estimateResponseTokens(promptTokens);
+      const promptTokens   = estimateTokens(text);
+      const responseTokens = getResponseTokens(taskKey);
       const { ml, minMl, maxMl } = estimateWaterMl({
         promptTokens,
         responseTokens,
         modelKey: model,
       });
 
-      const formatted = formatWater(ml);
+      const formatted    = formatWater(ml);
       const minFormatted = formatWater(minMl);
       const maxFormatted = formatWater(maxMl);
-      const equiv = bestEquivalence(ml);
+
+      // Suprime equivalência quando o resultado já está em litros
+      const equiv = ml < 1000 ? bestEquivalence(ml) : null;
+
+      // Nota educativa vinculada APENAS ao prompt exato do Facebook
+      const educationalNote = text === FACEBOOK_TEXTO
+        ? 'E isso é só 1 prompt. O Facebook real precisou de milhões deles — e cada um consome água.'
+        : undefined;
 
       const systemId = ++idCounter.current;
       const systemMsg: Message = {
@@ -70,17 +83,18 @@ export function ChatPanel() {
         role: 'system',
         text: `Para processar sua mensagem, um modelo como o ${MODEL_MULTIPLIERS[model].label} consumiria aproximadamente:`,
         waterInfo: {
-          primary: formatted.primary,
-          secondary: formatted.secondary,
-          range: `entre ${minFormatted.primary} e ${maxFormatted.primary}`,
-          equivalence: equiv ? equiv.valuePt : '',
+          primary:        formatted.primary,
+          secondary:      formatted.secondary,
+          range:          `entre ${minFormatted.primary} e ${maxFormatted.primary}`,
+          equivalence:    equiv ? equiv.valuePt : '',
+          educationalNote,
         },
       };
 
       setMessages(prev => [...prev, systemMsg]);
       setLoading(false);
     }, delay);
-  }, [input, loading, model]);
+  }, [input, loading, model, taskKey]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -88,6 +102,12 @@ export function ChatPanel() {
       handleSubmit();
     }
   };
+
+  const handleSuggestionSelect = useCallback((texto: string, categoria: string) => {
+    setInput(texto);
+    setTaskKey(categoria);
+    inputRef.current?.focus();
+  }, []);
 
   return (
     <div className={styles.panel}>
@@ -139,6 +159,11 @@ export function ChatPanel() {
                 {msg.waterInfo.equivalence && (
                   <p className={styles.waterEquiv}>Isso equivale a {msg.waterInfo.equivalence}</p>
                 )}
+                {msg.waterInfo.educationalNote && (
+                  <p className={styles.waterNote}>
+                    {msg.waterInfo.educationalNote}
+                  </p>
+                )}
                 <p className={styles.waterDisclaimer}>
                   Esta e uma estimativa educativa baseada em dados públicos de pesquisa. Os valores reais variam conforme a localização, tipo de resfriamento e fonte de energia.
                 </p>
@@ -156,13 +181,19 @@ export function ChatPanel() {
         )}
       </div>
 
+      {/* Sugestões de prompt */}
+      <PromptSuggestions onSelect={handleSuggestionSelect} />
+
       {/* Input */}
       <div className={styles.inputBar}>
         <textarea
           ref={inputRef}
           className={styles.input}
           value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={e => {
+            setInput(e.target.value);
+            setTaskKey('chat_simples'); // reseta categoria ao digitar manualmente
+          }}
           onKeyDown={handleKeyDown}
           placeholder="Digite sua mensagem..."
           rows={1}
