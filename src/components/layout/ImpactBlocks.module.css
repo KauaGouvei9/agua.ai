@@ -98,3 +98,111 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: hsla(var(--accent-hsl), 0.8);
+  line-height: var(--leading-snug);
+  word-break: break-word;
+}
+
+.textCol {
+  position: relative;
+  z-index: 1;
+}
+
+.accentBar {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: hsla(var(--accent-hsl), 0.6);
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+.body {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+  max-width: 720px;
+}
+
+.linkCard {
+  margin-top: var(--space-4);
+  max-width: 720px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.linkEyebrow {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: hsla(var(--accent-hsl), 0.82);
+  margin-bottom: var(--space-2);
+}
+
+.deepDiveLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+  font-weight: var(--weight-semibold);
+  color: var(--color-foam);
+}
+
+.deepDiveLink::after {
+  content: '↗';
+  font-size: var(--text-sm);
+}
+
+.deepDiveLink:hover {
+  color: var(--color-foam-white);
+}
+
+@media (max-width: 768px) {
+  .block,
+  .blockFlipped {
+    grid-template-columns: 1fr;
+    padding: var(--space-8) var(--space-6);
+    gap: var(--space-4);
+  }
+
+  .blockFlipped .numberCol,
+  .blockFlipped .textCol {
+    order: 0;
+    text-align: left;
+  }
+
+  .title {
+    font-size: var(--text-lg);
+  }
+
+  .body,
+  .deepDiveLink {
+    font-size: var(--text-base);
+  }
+
+  .bgShape {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block {
+    animation: none;
+  }
+}
