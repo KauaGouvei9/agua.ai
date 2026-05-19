@@ -4,8 +4,10 @@ interface ImpactItem {
   label: string;
   title: string;
   body: string;
-  deepDiveLabel: string;
-  deepDiveUrl: string;
+  deepDiveLinks: Array<{
+    label: string;
+    url: string;
+  }>;
 }
 
 interface ImpactBlocksProps {
@@ -50,14 +52,19 @@ export function ImpactBlocks({ items }: ImpactBlocksProps) {
 
               <div className={styles.linkCard}>
                 <p className={styles.linkEyebrow}>Quer explorar mais?</p>
-                <a
-                  className={styles.deepDiveLink}
-                  href={item.deepDiveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {item.deepDiveLabel}
-                </a>
+                <div className={styles.linkList}>
+                  {item.deepDiveLinks.map((link) => (
+                    <a
+                      key={link.url}
+                      className={styles.deepDiveLink}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </article>
