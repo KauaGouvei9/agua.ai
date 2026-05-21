@@ -75,7 +75,7 @@ export function ChatPanel() {
 
       // Nota educativa vinculada APENAS ao prompt exato do Facebook
       const educationalNote = text === FACEBOOK_TEXTO
-        ? 'E isso é só 1 prompt. O Facebook real precisou de milhões deles — e cada um consome água.'
+        ? 'E isso é só 1 prompt. O Facebook real precisou de milhões deles e cada um consome água.'
         : undefined;
 
       const systemId = ++idCounter.current;

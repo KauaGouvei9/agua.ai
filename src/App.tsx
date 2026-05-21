@@ -36,7 +36,7 @@ export default function App() {
           <div className="section-header-center">
             <h2 className="section-headline">Estimador de Agua</h2>
             <p className="section-intro">
-              tbd
+              Escolha um dos modelos abaixo e seleciona um dos várias perguntas que podemos fazer a IA e veja uma estimativa de uso de água.
             </p>
           </div>
           <ChatPanel />
