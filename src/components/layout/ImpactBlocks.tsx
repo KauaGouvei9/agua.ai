@@ -4,6 +4,10 @@ interface ImpactItem {
   label: string;
   title: string;
   body: string;
+  deepDiveLinks: Array<{
+    label: string;
+    url: string;
+  }>;
 }
 
 interface ImpactBlocksProps {
@@ -11,11 +15,11 @@ interface ImpactBlocksProps {
 }
 
 const ACCENT_VARS: Array<{ hue: string; glow: string }> = [
-  { hue: '195, 100%, 43%', glow: 'rgba(0, 180, 216, 0.15)' },       // cyan Escassez
-  { hue: '35, 100%, 62%',  glow: 'rgba(255, 174, 66, 0.12)' },      // amber  Crescimento
-  { hue: '160, 84%, 39%',  glow: 'rgba(6, 214, 160, 0.12)' },       // green Meio ambiente
-  { hue: '340, 82%, 65%',  glow: 'rgba(230, 80, 120, 0.12)' },      // rose Comunidades
-  { hue: '260, 60%, 65%',  glow: 'rgba(140, 100, 210, 0.12)' },     // violet Transparencia
+  { hue: '195, 100%, 43%', glow: 'rgba(0, 180, 216, 0.15)' },
+  { hue: '35, 100%, 62%', glow: 'rgba(255, 174, 66, 0.12)' },
+  { hue: '160, 84%, 39%', glow: 'rgba(6, 214, 160, 0.12)' },
+  { hue: '340, 82%, 65%', glow: 'rgba(230, 80, 120, 0.12)' },
+  { hue: '260, 60%, 65%', glow: 'rgba(140, 100, 210, 0.12)' },
 ];
 
 export function ImpactBlocks({ items }: ImpactBlocksProps) {
@@ -27,7 +31,7 @@ export function ImpactBlocks({ items }: ImpactBlocksProps) {
 
         return (
           <article
-            key={i}
+            key={item.label}
             className={`${styles.block} ${isEven ? styles.blockNormal : styles.blockFlipped}`}
             style={{
               '--accent-hsl': accent.hue,
@@ -35,19 +39,33 @@ export function ImpactBlocks({ items }: ImpactBlocksProps) {
               '--reveal-delay': `${i * 0.06}s`,
             } as React.CSSProperties}
           >
-            {/* Background decoration */}
             <div className={styles.bgShape} aria-hidden="true" />
 
-            {/* Label column */}
             <div className={styles.numberCol} aria-hidden="true">
               <span className={styles.label}>{item.label}</span>
             </div>
 
-            {/* Text content */}
             <div className={styles.textCol}>
               <div className={styles.accentBar} aria-hidden="true" />
               <h3 className={styles.title}>{item.title}</h3>
               <p className={styles.body}>{item.body}</p>
+
+              <div className={styles.linkCard}>
+                <p className={styles.linkEyebrow}>Quer explorar mais?</p>
+                <div className={styles.linkList}>
+                  {item.deepDiveLinks.map((link) => (
+                    <a
+                      key={link.url}
+                      className={styles.deepDiveLink}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </article>
         );
