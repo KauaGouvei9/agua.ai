@@ -31,6 +31,7 @@ export function ChatPanel() {
   const [model, setModel] = useState('chatgpt');
   const [taskKey, setTaskKey] = useState('chat_simples');
   const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const idCounter = useRef(0);
@@ -122,7 +123,55 @@ export function ChatPanel() {
             {m.label}
           </button>
         ))}
+        <button
+          className={styles.infoBtn}
+          onClick={() => setModalOpen(true)}
+          title="Como calculamos?"
+          aria-label="Como calculamos?"
+        >
+          &#x24D8;
+        </button>
       </div>
+
+      {/* Modal de metodologia */}
+      {modalOpen && (
+        <div className={styles.modalOverlay} onClick={(e) => { if (e.target === e.currentTarget) setModalOpen(false); }}>
+          <div className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div className={styles.modalHeader}>
+              <h3 className={styles.modalTitle} id="modal-title">Como calculamos?</h3>
+              <button className={styles.modalClose} onClick={() => setModalOpen(false)} aria-label="Fechar">&#x2715;</button>
+            </div>
+            <div className={styles.modalBody}>
+              <div className={styles.modalSection}>
+                <p className={styles.modalRef}><strong>Li et al. (2023)</strong> — Making AI Less Thirsty, UC Riverside</p>
+                <p className={styles.modalText}>Base científica principal. O estudo estima que executar o GPT-3 para 10–50 prompts consome ~500 mL de água. Adotamos <strong>25 mL por prompt de 250 tokens</strong> como valor central — centro conservador da faixa para modelos modernos mais eficientes.</p>
+              </div>
+              <div className={styles.modalSection}>
+                <p className={styles.modalRef}><strong>The Conversation — Leo S. Lo</strong>, Univ. of Virginia (2025)</p>
+                <p className={styles.modalText}>Referência secundária para o WUE (Water Usage Effectiveness). <strong>Média global: 1,8 L/kWh</strong> — usada para contextualizar o consumo energético dos data centers.</p>
+              </div>
+              <div className={styles.modalSection}>
+                <p className={styles.modalRef}><strong>Estimativa de tokens</strong></p>
+                <p className={styles.modalText}>Calculada via padrão <strong>tiktoken</strong> (OpenAI): 4 caracteres por token. A complexidade da tarefa (pergunta rápida, redação, projeto completo) define os tokens de resposta esperados.</p>
+              </div>
+              <div className={styles.modalSection}>
+                <p className={styles.modalRef}><strong>Faixa de incerteza</strong></p>
+                <p className={styles.modalText}>Variação de <strong>0,5× a 3,0×</strong> sobre o valor central — reflete diferenças reais entre data centers (temperatura, fonte de energia, horário de pico). Uma variação de ±20% é aplicada a cada cálculo para simular condições dinâmicas.</p>
+              </div>
+
+              <div className={styles.modalSection}>
+                <p className={styles.modalRef}>Exemplo de cálculo</p>
+                <p className={styles.modalText}>
+                  Prompt: <strong>"O que é fotossíntese?"</strong> (~8 tokens)<br />
+                  Resposta estimada: ~200 tokens (pergunta rápida)<br />
+                  Total: 208 tokens ÷ 250 × 25 mL = <strong>~20 mL</strong><br />
+                  Equivale a ~4 colheres de chá de água.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Messages */}
       <div className={styles.messages} ref={listRef}>
@@ -134,7 +183,7 @@ export function ChatPanel() {
                 <path d="M24 14v14M17 21l7 7 7-7" stroke="var(--color-water-bright)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <p>Digite qualquer mensagem para descobrir quanta agua seria usada para processa-la.</p>
+            <p>Escolha um prompt para descobrir aproximadamente quanta água seria usada</p>
           </div>
         )}
 
@@ -195,9 +244,10 @@ export function ChatPanel() {
             setTaskKey('chat_simples'); // reseta categoria ao digitar manualmente
           }}
           onKeyDown={handleKeyDown}
-          placeholder="Digite sua mensagem..."
+          placeholder="Selecione uma sugestão..."
           rows={1}
           disabled={loading}
+          readOnly
         />
         <button
           className={styles.send}
