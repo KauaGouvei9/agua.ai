@@ -183,7 +183,7 @@ export function ChatPanel() {
                 <path d="M24 14v14M17 21l7 7 7-7" stroke="var(--color-water-bright)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <p>Digite qualquer mensagem para descobrir quanta agua seria usada para processa-la.</p>
+            <p>Escolha um prompt para descobrir aproximadamente quanta água seria usada</p>
           </div>
         )}
 
@@ -244,9 +244,10 @@ export function ChatPanel() {
             setTaskKey('chat_simples'); // reseta categoria ao digitar manualmente
           }}
           onKeyDown={handleKeyDown}
-          placeholder="Digite sua mensagem..."
+          placeholder="Selecione uma sugestão..."
           rows={1}
           disabled={loading}
+          readOnly
         />
         <button
           className={styles.send}
