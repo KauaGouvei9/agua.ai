@@ -6,8 +6,8 @@ export const sectionCIntro =
 export const sectionCTabs = [
   {
     label: 'Escassez',
-    title: 'A água usada na computação também entra na conta da escassez',
-    body: 'Data centers precisam controlar o calor das máquinas para continuar funcionando, e parte desse processo pode usar água. Em lugares onde a água já é um recurso mais sensível, isso se junta a outras necessidades da sociedade, como abastecimento, agricultura e cuidado com a natureza. Por isso, quando falamos de escassez, também precisamos pensar em como a computação cresce e usa recursos fora das telas.',
+    title: 'A água que vai para a computação faz falta em outro lugar',
+    body: 'Pense na água de uma cidade como um bolo que precisa ser dividido entre todo mundo: as casas, as escolas, as plantações, os animais e também os data centers. Quando uma fatia grande vai para resfriar as máquinas, sobra menos bolo para o resto. E aqui está o ponto que costuma passar despercebido: o problema não é só "gastar" a água, é que ela deixa de estar disponível naquele rio ou naquele poço para quem dependia dela. Por isso a computação também entra na conta da escassez.',
     deepDiveLinks: [
       {
         label: 'Google: veja como a empresa explica o uso responsável da água em seus data centers',
@@ -22,7 +22,7 @@ export const sectionCTabs = [
   {
     label: 'Crescimento',
     title: 'Mais IA e mais serviços digitais significam mais infraestrutura',
-    body: 'Quando usamos vídeos, jogos, buscas e ferramentas de inteligência artificial, mais servidores precisam trabalhar nos data centers. Isso faz crescer a necessidade de armazenamento, energia e sistemas de resfriamento, que podem envolver consumo de água. Entender esse crescimento ajuda a perceber que a internet e a IA não funcionam sozinhas: elas dependem de grandes estruturas físicas para existir.',
+    body: 'Cada vez que assistimos a um vídeo, jogamos online ou pedimos algo para uma inteligência artificial, mais computadores precisam acordar e trabalhar nos data centers. E quanto mais eles trabalham, mais energia consomem, e boa parte da nossa energia vem de usinas que dependem de água para funcionar, como as hidrelétricas. Ou seja: a água acaba sendo usada duas vezes, uma para resfriar as máquinas e outra para gerar a eletricidade que as mantém ligadas. Quando muitos serviços crescem ao mesmo tempo, essa conta de água e energia cresce junto e pode sobrecarregar todo o sistema.',
     deepDiveLinks: [
       {
         label: 'EPE: conheça dados sobre o consumo de energia dos data centers no Brasil',
@@ -41,7 +41,7 @@ export const sectionCTabs = [
   {
     label: 'Meio ambiente',
     title: 'O funcionamento dos data centers também tem efeitos no meio ambiente',
-    body: 'Para manter servidores e sistemas digitais funcionando sem parar, os data centers precisam lidar com calor, energia e resfriamento. Quando isso exige muita água ou muita energia, o impacto pode chegar às bacias, aos rios e aos ambientes naturais ao redor. Por isso, pensar em computação também é pensar em como essas estruturas podem operar com mais cuidado com a natureza.',
+    body: 'A água realmente volta com o tempo através da chuva, só que nesses casos, em outro lugar, longe de onde foi retirada. É como tirar água de um laguinho e devolver na cidade vizinha: o laguinho original fica mais seco. Os peixes, as plantas, os pássaros e os outros animais que viviam ali contavam com aquela água do dia a dia. Quando ela some daquela região, todo o equilíbrio da natureza ao redor sente a diferença, porque o ciclo natural da água daquele lugar foi mudado de endereço.',
     deepDiveLinks: [
       {
         label: 'Google: veja exemplos de como data centers podem buscar operar de forma sustentável',
@@ -56,7 +56,7 @@ export const sectionCTabs = [
   {
     label: 'Comunidades',
     title: 'Data centers são estruturas reais em lugares onde pessoas vivem',
-    body: 'Os data centers não ficam “dentro da nuvem”: eles ocupam terrenos, usam recursos e fazem parte de cidades e comunidades reais. Quando uma estrutura assim cresce, ela pode influenciar o uso de água, energia e espaço no lugar onde foi construída. Por isso, acompanhar esse tema também é pensar em como a tecnologia convive com as pessoas ao redor.',
+    body: 'Os data centers não ficam flutuando numa "nuvem mágica": eles são prédios de verdade, construídos perto de cidades e bairros onde mora gente como você. A água que chega às torneiras viaja pelos canos empurrada por uma certa força, a pressão. Quando muita água é direcionada de uma vez para resfriar as máquinas, pode sobrar menos pressão para as casas, as escolas e o comércio do entorno, e aí o chuveiro fica fraquinho e a torneira pinga devagar. Por isso esse tema não é só "da tecnologia": ele chega até o dia a dia das pessoas que vivem por perto.',
     deepDiveLinks: [
       {
         label: 'Google: explore como os data centers podem ampliar o acesso e se conectar com comunidades',
@@ -71,7 +71,7 @@ export const sectionCTabs = [
   {
     label: 'Transparência',
     title: 'Entender o uso da água na computação depende de informação clara',
-    body: 'Quando empresas mostram quanto consomem, de onde vem a água e como resfriam seus data centers, as pessoas conseguem entender melhor os impactos da computação no mundo real. Isso é ainda mais importante quando falamos de inteligência artificial, que depende de grandes estruturas para funcionar. Sem clareza, fica mais difícil acompanhar, comparar e cobrar responsabilidade.',
+    body: 'Para saber se está tudo bem, primeiro a gente precisa conseguir enxergar o que está acontecendo. É como um jogo em que só dá para vencer se você puder ver o placar: quando as empresas mostram quanta água usam, de onde ela vem e como resfriam seus data centers, fica muito mais fácil entender os impactos e cobrar cuidado. Sem esses números à vista, a água some "sem deixar rastro" e ninguém consegue acompanhar para onde ela foi. Por isso, pedir transparência também é uma forma de proteger a água da sua região.',
     deepDiveLinks: [
       {
         label: 'Google: acompanhe um exemplo de página pública sobre água em data centers',
