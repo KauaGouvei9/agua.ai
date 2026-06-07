@@ -4,6 +4,7 @@ import { MuseumTimeline } from './components/layout/MuseumTimeline';
 import { ImpactBlocks } from './components/layout/ImpactBlocks';
 import { ChatPanel } from './components/chat/ChatPanel';
 import { QuizTrail } from './components/quiz/QuizTrail';
+import { MuralPromessas } from './components/mural/MuralPromessas';
 import { sectionATitle, sectionAIntro, sectionAPages } from './content/pt/sectionA';
 import { sectionCTitle, sectionCIntro, sectionCTabs } from './content/pt/sectionC';
 import { quizTitle, quizIntro } from './content/pt/quiz';
@@ -36,7 +37,7 @@ export default function App() {
           <div className="section-header-center">
             <h2 className="section-headline">Estimador de Agua</h2>
             <p className="section-intro">
-              tbd
+              Escolha um dos modelos abaixo e seleciona um dos várias perguntas que podemos fazer a IA e veja uma estimativa de uso de água.
             </p>
           </div>
           <ChatPanel />
@@ -66,6 +67,22 @@ export default function App() {
           </div>
           <QuizTrail />
         </div>
+      </SectionShell>
+
+      <SectionShell id="mural" variant="alt">
+        <div className="motif-gradient-mesh" />
+        <div className="motif-noise" />
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header-center">
+            <h2 className="section-headline">Mural de Promessas</h2>
+            <p className="section-intro">
+              O que você vai mudar no seu uso de tecnologia depois de aprender isso?
+              Cada promessa pequena, somada, faz uma diferença grande.
+            </p>
+          </div>
+          <MuralPromessas />
+        </div>
+        <div className="motif-waves" />
       </SectionShell>
 
       <div className="motif-bubbles" style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
