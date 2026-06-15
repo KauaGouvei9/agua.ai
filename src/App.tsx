@@ -5,6 +5,7 @@ import { ImpactBlocks } from './components/layout/ImpactBlocks';
 import { ChatPanel } from './components/chat/ChatPanel';
 import { QuizTrail } from './components/quiz/QuizTrail';
 import { AboutProject } from './components/layout/AboutProject';
+import { MuralPromessas } from './components/mural/MuralPromessas';
 import { sectionATitle, sectionAIntro, sectionAPages } from './content/pt/sectionA';
 import { sectionCTitle, sectionCIntro, sectionCTabs } from './content/pt/sectionC';
 import { quizTitle, quizIntro } from './content/pt/quiz';
@@ -68,6 +69,22 @@ export default function App() {
           </div>
           <QuizTrail />
         </div>
+      </SectionShell>
+
+      <SectionShell id="mural" variant="alt">
+        <div className="motif-gradient-mesh" />
+        <div className="motif-noise" />
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header-center">
+            <h2 className="section-headline">Mural de Promessas</h2>
+            <p className="section-intro">
+              O que você vai mudar no seu uso de tecnologia depois de aprender isso?
+              Cada promessa pequena, somada, faz uma diferença grande.
+            </p>
+          </div>
+          <MuralPromessas />
+        </div>
+        <div className="motif-waves" />
       </SectionShell>
 
       <SectionShell id="quem-somos" variant="alt">

@@ -1,0 +1,239 @@
+.wrapper {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* ── Contadores ── */
+.contadores {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+}
+
+.contador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-8);
+}
+
+.contadorNum {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-water-bright);
+}
+
+.contadorLbl {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ── Input area ── */
+.inputArea {
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.inputPrompt {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+}
+
+.inputRow {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.input {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-glass-border);
+    background: rgba(10, 22, 40, 0.5);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color var(--duration-fast);
+}
+
+.input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.input:focus {
+    border-color: var(--color-water-bright);
+}
+
+.btn {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-glass-border);
+    background: transparent;
+    color: var(--color-water-bright);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--duration-fast), border-color var(--duration-fast);
+}
+
+.btn:hover:not(:disabled) {
+    background: rgba(0, 180, 216, 0.12);
+    border-color: var(--color-water-bright);
+}
+
+.btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* ── Sugestões rápidas ── */
+.sugestoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.sugestaoLabel {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+}
+
+.sugestaoTag {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-glass-border);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.sugestaoTag:hover {
+    background: var(--color-glass);
+    color: var(--color-text-primary);
+}
+
+/* ── Feedback ── */
+.feedback {
+    font-size: var(--text-sm);
+    color: var(--color-success);
+    animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Grid de cards ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-3);
+}
+
+.card {
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    border: 1px solid transparent;
+    animation: popIn 0.3s var(--ease-bounce);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cardTexto {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+}
+
+/* ── Variações de cor ── */
+.teal {
+    background: rgba(0, 180, 216, 0.08);
+    border-color: rgba(0, 180, 216, 0.2);
+}
+
+.teal .cardTexto {
+    color: var(--color-water-pale);
+}
+
+.blue {
+    background: rgba(22, 58, 95, 0.6);
+    border-color: rgba(72, 202, 228, 0.2);
+}
+
+.blue .cardTexto {
+    color: var(--color-water-soft);
+}
+
+.amber {
+    background: rgba(255, 209, 102, 0.07);
+    border-color: rgba(255, 209, 102, 0.2);
+}
+
+.amber .cardTexto {
+    color: var(--color-warning);
+}
+
+.purple {
+    background: rgba(100, 80, 200, 0.1);
+    border-color: rgba(150, 130, 230, 0.2);
+}
+
+.purple .cardTexto {
+    color: #C4B5FD;
+}
+
+/* ── Responsivo ── */
+@media (max-width: 540px) {
+    .inputRow {
+        flex-direction: column;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contadores {
+        gap: var(--space-3);
+    }
+}
