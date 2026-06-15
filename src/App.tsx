@@ -4,10 +4,12 @@ import { MuseumTimeline } from './components/layout/MuseumTimeline';
 import { ImpactBlocks } from './components/layout/ImpactBlocks';
 import { ChatPanel } from './components/chat/ChatPanel';
 import { QuizTrail } from './components/quiz/QuizTrail';
+import { AboutProject } from './components/layout/AboutProject';
 import { MuralPromessas } from './components/mural/MuralPromessas';
 import { sectionATitle, sectionAIntro, sectionAPages } from './content/pt/sectionA';
 import { sectionCTitle, sectionCIntro, sectionCTabs } from './content/pt/sectionC';
 import { quizTitle, quizIntro } from './content/pt/quiz';
+import { aboutTitle, aboutIntro, aboutValues, aboutInstitution } from './content/pt/about';
 import './theme/tokens.css';
 import './theme/motifs.css';
 import './theme/globals.css';
@@ -81,6 +83,19 @@ export default function App() {
             </p>
           </div>
           <MuralPromessas />
+        </div>
+        <div className="motif-waves" />
+      </SectionShell>
+
+      <SectionShell id="quem-somos" variant="alt">
+        <div className="motif-gradient-mesh" />
+        <div className="motif-noise" />
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header-center">
+            <h2 className="section-headline">{aboutTitle}</h2>
+            <p className="section-intro">{aboutIntro}</p>
+          </div>
+          <AboutProject values={aboutValues} institution={aboutInstitution} />
         </div>
         <div className="motif-waves" />
       </SectionShell>

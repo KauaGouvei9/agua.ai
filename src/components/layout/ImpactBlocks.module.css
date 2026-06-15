@@ -7,13 +7,12 @@
   margin: var(--space-12) auto 0;
 }
 
-/* ── Each impact block ── */
 .block {
   position: relative;
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: var(--space-8);
-  align-items: center;
+  align-items: start;
   padding: var(--space-10) var(--space-8);
   border-radius: var(--radius-2xl);
   background: linear-gradient(
@@ -23,8 +22,9 @@
   );
   border: 1px solid rgba(255, 255, 255, 0.04);
   overflow: hidden;
-  transition: border-color var(--duration-normal),
-              transform var(--duration-normal) var(--ease-out);
+  transition:
+    border-color var(--duration-normal),
+    transform var(--duration-normal) var(--ease-out);
   animation: blockReveal 0.7s var(--ease-out) var(--reveal-delay, 0s) both;
 }
 
@@ -44,7 +44,6 @@
   }
 }
 
-/* Flipped layout: text on left, number on right */
 .blockFlipped {
   grid-template-columns: 1fr 160px;
 }
@@ -58,7 +57,6 @@
   order: 1;
 }
 
-/* ── Background decoration — organic blob ── */
 .bgShape {
   position: absolute;
   width: 360px;
@@ -85,14 +83,12 @@
   left: -80px;
 }
 
-/* ── Label column ── */
 .numberCol {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  min-height: 100%;
 }
 
 .label {
@@ -106,7 +102,6 @@
   word-break: break-word;
 }
 
-/* ── Text column ── */
 .textCol {
   position: relative;
   z-index: 1;
@@ -122,21 +117,67 @@
 
 .title {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   line-height: var(--leading-snug);
 }
 
 .body {
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: var(--color-text-secondary);
-  max-width: 580px;
+  max-width: 720px;
 }
 
-/* ── Mobile: stack vertically ── */
+.linkCard {
+  margin-top: var(--space-4);
+  max-width: 720px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.linkEyebrow {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: hsla(var(--accent-hsl), 0.82);
+  margin-bottom: var(--space-2);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.deepDiveLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+  font-weight: var(--weight-semibold);
+  color: var(--color-foam);
+}
+
+.deepDiveLink::after {
+  content: '↗';
+  font-size: var(--text-sm);
+}
+
+.deepDiveLink:hover {
+  color: var(--color-foam-white);
+}
+
 @media (max-width: 768px) {
   .block,
   .blockFlipped {
@@ -145,20 +186,18 @@
     gap: var(--space-4);
   }
 
-  .blockFlipped .numberCol {
+  .blockFlipped .numberCol,
+  .blockFlipped .textCol {
     order: 0;
     text-align: left;
   }
 
-  .blockFlipped .textCol {
-    order: 0;
-  }
-
   .title {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
   }
 
-  .body {
+  .body,
+  .deepDiveLink {
     font-size: var(--text-base);
   }
 
