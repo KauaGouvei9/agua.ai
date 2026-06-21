@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { id: 'estimador', label: 'Estimador' },
   { id: 'seu papel', label: 'Seu papel' },
   { id: 'quiz', label: 'Quiz' },
+  { id: 'mural', label: 'Mural' },
 ];
 
 export function Nav() {
