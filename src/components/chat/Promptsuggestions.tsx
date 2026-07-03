@@ -84,7 +84,6 @@ export function PromptSuggestions({ onSelect }: Props) {
 
   return (
     <div className={styles.wrapper}>
-      <span className={styles.label}>Experimente perguntar:</span>
       <div className={styles.grid}>
         {cards.map((card, pos) => (
           <button

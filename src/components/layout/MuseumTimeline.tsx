@@ -16,7 +16,7 @@ export function MuseumTimeline({ items }: MuseumTimelineProps) {
       {items.map((item, i) => (
         <article
           key={i}
-          className={`${styles.card} ${i % 2 === 0 ? styles.cardLeft : styles.cardRight}`}
+          className={`${styles.card} ${i % 2 === 0 ? styles.cardRight : styles.cardLeft}`}
           style={{ '--delay': `${i * 0.08}s` } as React.CSSProperties}
         >
           <div className={styles.marker} aria-hidden="true">

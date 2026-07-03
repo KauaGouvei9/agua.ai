@@ -5,11 +5,13 @@ import { ImpactBlocks } from './components/layout/ImpactBlocks';
 import { ChatPanel } from './components/chat/ChatPanel';
 import { QuizTrail } from './components/quiz/QuizTrail';
 import { useState } from 'react';
+import { AboutProject } from './components/layout/AboutProject';
 import { MuralPromessas } from './components/mural/MuralPromessas';
 import { BaseModal } from './components/modals/BaseModal';
 import { sectionATitle, sectionAIntro, sectionAPages } from './content/pt/sectionA';
 import { sectionCTitle, sectionCIntro, sectionCTabs } from './content/pt/sectionC';
 import { quizTitle, quizIntro } from './content/pt/quiz';
+import { aboutTitle, aboutIntro, aboutValues, aboutInstitution } from './content/pt/about';
 import './theme/tokens.css';
 import './theme/motifs.css';
 import './theme/globals.css';
@@ -63,7 +65,7 @@ export default function App() {
       <SectionShell id="quiz" variant="default">
         <div className="motif-gradient-mesh" />
         <div className="motif-noise" />
-        <div style={{ position: 'relative', zIndex: 2, minHeight: '100vh', paddingTop: 'var(--space-16)', paddingBottom: 'var(--space-16)' }}>
+        <div style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-header-center" style={{ position: 'relative' }}>
             <h2 className="section-headline">{quizTitle}</h2>
             <p className="section-intro">{quizIntro}</p>
@@ -126,6 +128,19 @@ export default function App() {
             </p>
           </div>
           <MuralPromessas />
+        </div>
+        <div className="motif-waves" />
+      </SectionShell>
+
+      <SectionShell id="quem-somos" variant="alt">
+        <div className="motif-gradient-mesh" />
+        <div className="motif-noise" />
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header-center">
+            <h2 className="section-headline">{aboutTitle}</h2>
+            <p className="section-intro">{aboutIntro}</p>
+          </div>
+          <AboutProject values={aboutValues} institution={aboutInstitution} />
         </div>
         <div className="motif-waves" />
       </SectionShell>
