@@ -4,7 +4,7 @@ import styles from './Nav.module.css';
 const NAV_ITEMS = [
   { id: 'motivacao', label: 'Motivação' },
   { id: 'estimador', label: 'Estimador' },
-  { id: 'impactos', label: 'Seu papel' },
+  { id: 'seu papel', label: 'Seu papel' },
   { id: 'quiz', label: 'Quiz' },
   { id: 'mural', label: 'Mural' },
   { id: 'quem-somos', label: 'Quem somos' },
