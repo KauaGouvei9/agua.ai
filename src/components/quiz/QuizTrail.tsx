@@ -6,7 +6,7 @@ import styles from './QuizTrail.module.css';
 type NodeState = 'locked' | 'current' | 'completed';
 
 interface QuizState {
-  currentUnlocked: number; // 0-based index of the next unanswered question
+  currentUnlocked: number;
   completed: boolean[];
 }
 

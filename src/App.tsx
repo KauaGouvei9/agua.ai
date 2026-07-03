@@ -4,8 +4,10 @@ import { MuseumTimeline } from './components/layout/MuseumTimeline';
 import { ImpactBlocks } from './components/layout/ImpactBlocks';
 import { ChatPanel } from './components/chat/ChatPanel';
 import { QuizTrail } from './components/quiz/QuizTrail';
+import { useState } from 'react';
 import { AboutProject } from './components/layout/AboutProject';
 import { MuralPromessas } from './components/mural/MuralPromessas';
+import { BaseModal } from './components/modals/BaseModal';
 import { sectionATitle, sectionAIntro, sectionAPages } from './content/pt/sectionA';
 import { sectionCTitle, sectionCIntro, sectionCTabs } from './content/pt/sectionC';
 import { quizTitle, quizIntro } from './content/pt/quiz';
@@ -15,6 +17,7 @@ import './theme/motifs.css';
 import './theme/globals.css';
 
 export default function App() {
+  const [quizInfoOpen, setQuizInfoOpen] = useState(false);
   return (
     <>
       <Nav />
@@ -63,12 +66,54 @@ export default function App() {
         <div className="motif-gradient-mesh" />
         <div className="motif-noise" />
         <div style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-header-center">
+          <div className="section-header-center" style={{ position: 'relative' }}>
             <h2 className="section-headline">{quizTitle}</h2>
             <p className="section-intro">{quizIntro}</p>
+            <button
+              onClick={() => setQuizInfoOpen(true)}
+              title="Referências do quiz"
+              aria-label="Ver referências"
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                fontSize: '20px',
+                color: '#C87A1A',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                filter: 'drop-shadow(0 0 4px rgba(200,122,26,0.4))',
+                lineHeight: 1,
+              }}
+            >
+              &#x24D8;
+            </button>
           </div>
           <QuizTrail />
         </div>
+
+        <BaseModal
+          open={quizInfoOpen}
+          onClose={() => setQuizInfoOpen(false)}
+          title="Referências"
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '0.5rem 0' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+              <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FAC775' }}>Furtado e Cunha (2024)</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-primary)', fontStyle: 'italic', lineHeight: 1.5 }}>
+                Inteligência artificial, data centers e colonialismo digital: Impactos socioambientais e geopolíticos a partir do Sul Global
+              </p>
+              <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>Parágrafo 6 — tópico "NEM INTELIGENTE, NEM ARTIFICIAL"</p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FAC775' }}>Mazziero e Basigli (2025)</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-primary)', fontStyle: 'italic', lineHeight: 1.5 }}>
+                Impactos ambientais invisíveis da inteligência artificial: pegada de carbono, consumo de água e desafios regulatórios
+              </p>
+              <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>Parágrafo 3 — tópico "2. A PEGADA ECOLÓGICA DA INTELIGÊNCIA ARTIFICIAL"</p>
+            </div>
+          </div>
+        </BaseModal>
       </SectionShell>
 
       <SectionShell id="mural" variant="alt">

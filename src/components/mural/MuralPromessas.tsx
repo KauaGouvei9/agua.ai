@@ -10,20 +10,20 @@ interface Promessa {
 
 // Promessas pré-carregadas para dar vida ao mural desde o início
 const PROMESSAS_INICIAIS: Promessa[] = [
-  { id: 1,  texto: 'Vou pensar duas vezes antes de pedir pra IA gerar coisas desnecessárias.',  nome: 'Ana',     cor: 'teal'   },
-  { id: 2,  texto: 'Quero aprender a buscar informações direto na fonte antes de usar o ChatGPT.', nome: 'Pedro',  cor: 'blue'   },
-  { id: 3,  texto: 'Vou contar pra minha turma que a IA usa água de verdade!',                   nome: 'Lucas',   cor: 'purple' },
-  { id: 4,  texto: 'Vou desligar dispositivos que não estou usando.',                            nome: 'Júlia',   cor: 'amber'  },
-  { id: 5,  texto: 'Vou usar menos prompts de IA por dia.',                                      nome: 'Anônimo', cor: 'teal'   },
-  { id: 6,  texto: 'Vou pesquisar mais antes de perguntar pra IA.',                              nome: 'Maria',   cor: 'blue'   },
-  { id: 7,  texto: 'Quero mostrar esse site pros meus pais e explicar o que aprendi.',           nome: 'Anônimo', cor: 'purple' },
-  { id: 8,  texto: 'Vou evitar pedir pra IA gerar imagens sem necessidade.',                    nome: 'Tales',   cor: 'amber'  },
+  { id: 1,  texto: 'Vou pensar duas vezes antes de pedir pra IA gerar coisas desnecessárias.',                 nome: 'Ana',     cor: 'teal'   },
+  { id: 2,  texto: 'Vou fazer sozinha sem copiar nada da IA.',                                                  nome: 'Anônimo', cor: 'blue'   },
+  { id: 3,  texto: 'Prometo passar um dia da semana sem usar IA para tarefas simples!',                         nome: 'Lucas',   cor: 'purple' },
+  { id: 4,  texto: 'Prometo que vou criar algo do zero sem IA pelo menos uma vez por semana.',                  nome: 'Júlia',   cor: 'amber'  },
+  { id: 5,  texto: 'Vou perguntar "eu realmente preciso usar IA para isso?" antes de abrir o chat.',            nome: 'Anônimo', cor: 'teal'   },
+  { id: 6,  texto: 'Vou pesquisar em livros ou sites antes de pedir um resumo para a IA.',                     nome: 'Maria',   cor: 'blue'   },
+  { id: 7,  texto: 'Prometo ensinar outras pessoas sobre como a IA usa a água do planeta.',                     nome: 'Pedro',   cor: 'purple' },
+  { id: 8,  texto: 'Vou evitar pedir versões diferentes da mesma imagem só por curiosidade.',                   nome: 'Tales',   cor: 'amber'  },
 ];
 
 const SUGESTOES = [
-  'Vou usar menos a IA no meu dia a dia',
-  'Vou pesquisar antes de perguntar pra IA',
-  'Vou falar sobre isso pra minha turma',
+  'Prometo não compartilhar dados importantes com a IA',
+  'Prometo pedir ajuda para meus responsáveis e não para IA',
+  'Prometo compartilhar uma curiosidade sobre água, energia ou IA com outra pessoa',
 ];
 
 const CORES: Promessa['cor'][] = ['teal', 'blue', 'amber', 'purple'];
