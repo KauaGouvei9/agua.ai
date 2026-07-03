@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-8);
+  width: 100%;
+  padding: var(--space-6) var(--space-4);
 }
 
 /* Nodes container */
@@ -12,7 +14,8 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0;
-  padding: var(--space-4);
+  padding: var(--space-8) var(--space-6);
+  width: 100%;
 }
 
 .nodeGroup {
@@ -85,8 +88,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0; transform: scale(1); }
-  50%      { opacity: 0.3; transform: scale(1.1); }
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
 }
 
 /* Completed */
@@ -116,8 +126,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Question modal content */
@@ -234,7 +251,7 @@
   cursor: not-allowed;
 }
 
-/* Responsive: wrap nodes on small screens */
+/* Responsive */
 @media (max-width: 640px) {
   .nodes {
     gap: var(--space-2);
@@ -252,8 +269,76 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .current::after,
   .complete {
     animation: none;
   }
+}
+
+/* ── Barra do botão ⓘ ── */
+.infoBar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: var(--space-4);
+}
+
+.infoBtn {
+  font-size: var(--text-xs);
+  color: #C87A1A;
+  background: none;
+  border: 1px solid rgba(200, 122, 26, 0.3);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background var(--duration-fast), border-color var(--duration-fast);
+  filter: drop-shadow(0 0 4px rgba(200, 122, 26, 0.25));
+}
+
+.infoBtn:hover {
+  background: rgba(200, 122, 26, 0.08);
+  border-color: rgba(200, 122, 26, 0.6);
+}
+
+/* ── Modal de referências ── */
+.refModal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-2) 0;
+}
+
+.refItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-glass-border);
+}
+
+.refItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.refTitulo {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: #FAC775;
+}
+
+.refCitacao {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  font-style: italic;
+  line-height: var(--leading-snug);
+}
+
+.refLocal {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
 }
