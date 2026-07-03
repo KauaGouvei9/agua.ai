@@ -1,11 +1,11 @@
 // ============================================================
 // FONTE PRINCIPAL: Li et al. (2023) "Making AI Less Thirsty"
-// UC Riverside — https://arxiv.org/abs/2304.03271
+// UC Riverside https://arxiv.org/abs/2304.03271
 // GPT-3: ~500 mL a cada 10–50 prompts médios
 // → Adotamos 10 mL/prompt como estimativa conservadora
 //   para modelos modernos (mais eficientes que GPT-3)
 //
-// FONTE SECUNDÁRIA: The Conversation — Leo S. Lo, Univ. of Virginia (set. 2025)
+// FONTE SECUNDÁRIA: The Conversation Leo S. Lo, Univ. of Virginia (set. 2025)
 // https://theconversation.com/ai-has-a-hidden-water-cost-heres-how-to-calculate-yours-263252
 //
 // WUE (Water Usage Effectiveness): média mundial ~1.8 L/kWh
@@ -16,7 +16,7 @@
 export const CHARS_PER_TOKEN = 4;
 
 // Li et al. 2023: faixa de 10–50 mL por prompt de 250 tokens
-// 25 = centro da faixa — mais representativo da realidade média
+// 25 = centro da faixa  mais representativo da realidade média
 export const BASE_WATER_ML_PER_INTERACTION = 25;
 
 // Tokens de referência para calibrar a escala por tamanho do prompt
@@ -29,7 +29,7 @@ export const RANGE_MIN_FACTOR = 0.5;
 export const RANGE_MAX_FACTOR = 3.0;
 
 // ============================================================
-// WUE — Water Usage Effectiveness (referência técnica opcional)
+// WUE Water Usage Effectiveness (referência técnica opcional)
 // ============================================================
 export const WUE_L_PER_KWH = 1.8;
 export const ENERGY_WH_PER_PROMPT_BASE = 3.0;
@@ -47,7 +47,7 @@ export const MODEL_MULTIPLIERS: Record<string, { label: string; multiplier: numb
 // ============================================================
 // COMPLEXIDADE DE TAREFA
 // Substitui o multiplicador fixo de resposta (RESPONSE_TOKEN_MULTIPLIER).
-// O tamanho do prompt digitado não determina o consumo — a natureza
+// O tamanho do prompt digitado não determina o consumo  a natureza
 // da tarefa sim. "Crie um site completo" tem 5 palavras mas gera
 // ~2500 tokens de resposta.
 //
@@ -154,7 +154,7 @@ export const TASK_COMPLEXITY: Record<string, {
 };
 
 // ============================================================
-// EQUIVALÊNCIAS — comparações lúdicas para comunicar o impacto
+// EQUIVALÊNCIAS comparações lúdicas para comunicar o impacto
 // ============================================================
 export interface Equivalence {
   labelPt: string;
@@ -246,7 +246,7 @@ export const EQUIVALENCES: Equivalence[] = [
     minMl: 15_000,
   },
   {
-    labelPt: 'dias de consumo de água de uma pessoa (~110 L/dia — média brasileira IBGE)',
+    labelPt: 'dias de consumo de água de uma pessoa (~110 L/dia média brasileira IBGE)',
     unitPt:  'dia de consumo pessoal',
     mlPerUnit: 110_000,
     minMl: 50_000,

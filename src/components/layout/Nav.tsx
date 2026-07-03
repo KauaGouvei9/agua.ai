@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { id: 'seu papel', label: 'Seu papel' },
   { id: 'quiz', label: 'Quiz' },
   { id: 'mural', label: 'Mural' },
+  { id: 'quem-somos', label: 'Quem somos' },
 ];
 
 export function Nav() {
@@ -17,6 +18,16 @@ export function Nav() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // When the page is scrolled to the bottom, the last section can never
+      // reach the 120px threshold, so force it active here.
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActive(NAV_ITEMS[NAV_ITEMS.length - 1].id);
+        return;
+      }
 
       const sections = NAV_ITEMS.map(item => ({
         id: item.id,

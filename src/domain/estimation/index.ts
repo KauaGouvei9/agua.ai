@@ -17,14 +17,14 @@ import {
 /** Formata número no padrão brasileiro (vírgula decimal, ponto milhar) */
 function fmtBr(n: number): string {
   if (n < 0.01) return 'menos de 0,01';
-  // Sempre arredonda pra cima — ninguém fala "2,7 latinhas"
+  // Sempre arredonda pra cima ninguém fala "2,7 latinhas"
   const ceiled = Math.ceil(n);
   return ceiled
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
-/** Pluralização simples — usa pluralForm se fornecido, senão adiciona 's' */
+/** Pluralização simples usa pluralForm se fornecido, senão adiciona 's' */
 function plural(n: number, singular: string, pluralForm?: string): string {
   return n <= 1.4 ? singular : (pluralForm ?? singular + 's');
 }
@@ -34,7 +34,7 @@ function plural(n: number, singular: string, pluralForm?: string): string {
 // ============================================================
 const FRASES_CRIATIVAS: Record<string, (count: number) => string> = {
   gota: (n) =>
-    `${fmtBr(n)} ${plural(n, 'gotinha')} de água — parece invisível, mas some`,
+    `${fmtBr(n)} ${plural(n, 'gotinha')} de água parece invisível, mas some`,
 
   'colher de chá': (n) =>
     `${fmtBr(n)} ${plural(n, 'colher de chá', 'colheres de chá')} de água`,
@@ -44,7 +44,7 @@ const FRASES_CRIATIVAS: Record<string, (count: number) => string> = {
 
   copo: (n) =>
     n < 1
-      ? `${fmtBr(n)} copo de água — quase isso`
+      ? `${fmtBr(n)} copo de água quase isso`
       : `${fmtBr(n)} ${plural(n, 'copo')} de água (200 mL cada)`,
 
   latinha: (n) =>
@@ -108,9 +108,9 @@ export function estimateTokens(text: string): number {
 }
 
 // ============================================================
-// TOKENS DE RESPOSTA — agora via categoria de complexidade
+// TOKENS DE RESPOSTA  agora via categoria de complexidade
 //
-// Antes: responseTokens = f(promptTokens) — impreciso para
+// Antes: responseTokens = f(promptTokens)  impreciso para
 // prompts curtos mas complexos ("crie um site completo").
 // Agora: cada categoria define sua estimativa de resposta típica.
 // Fallback: chat_simples (200 tokens) se a chave não existir.
@@ -142,11 +142,11 @@ export function estimateWaterMl({ promptTokens, responseTokens, modelKey }: Wate
   const scale       = totalTokens / REFERENCE_TOKEN_COUNT;
   const modelMult   = MODEL_MULTIPLIERS[modelKey]?.multiplier ?? 1.0;
 
-  // Variação aleatória de ±20% — simula diferenças reais de data center,
+  // Variação aleatória de ±20%  simula diferenças reais de data center,
   // horário e carga do servidor. Evita valor sempre engessado no mesmo número.
   const jitter = 0.8 + Math.random() * 0.4; // entre 0.80 e 1.20
 
-  // Mínimo de 1 mL — mesmo prompts curtíssimos consomem algo
+  // Mínimo de 1 mL  mesmo prompts curtíssimos consomem algo
   const ml    = Math.max(1, Math.round(BASE_WATER_ML_PER_INTERACTION * scale * modelMult * jitter * 100) / 100);
   const minMl = Math.round(ml * RANGE_MIN_FACTOR * 100) / 100;
   const maxMl = Math.round(ml * RANGE_MAX_FACTOR * 100) / 100;
