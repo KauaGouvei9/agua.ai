@@ -151,3 +151,23 @@
     padding: var(--space-3) var(--space-4);
   }
 }
+
+
+/* Theme toggle */
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-primary);
+  transition: background var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.themeToggle:hover {
+  background: var(--color-glass-hover);
+}

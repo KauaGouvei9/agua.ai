@@ -159,3 +159,35 @@ button {
   background: rgba(0, 180, 216, 0.35);
   color: var(--color-foam-white);
 }
+
+
+/* Nav tokens */
+:root {
+  --color-nav-scrolled: rgba(10, 22, 40, 0.92);
+  --color-nav-mobile:   rgba(10, 22, 40, 0.96);
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --color-ocean-deep:    #F0F7FF;
+  --color-ocean-mid:     #DCF0FA;
+  --color-ocean-surface: #C5E4F5;
+  --color-water-bright:  #0090B8;
+  --color-water-soft:    #2AB5D0;
+  --color-water-pale:    #5CCCE0;
+  --color-foam:          #A8E6F0;
+  --color-foam-white:    #0A1628;
+  --color-text-primary:  #0A1628;
+  --color-text-secondary:#163A5F;
+  --color-text-muted:    #4A7A8A;
+  --color-text-dark:     #F0F7FF;
+  --color-surface:       rgba(197, 228, 245, 0.6);
+  --color-surface-solid: #DCF0FA;
+  --color-glass:         rgba(197, 228, 245, 0.45);
+  --color-glass-border:  rgba(0, 144, 184, 0.2);
+  --color-glass-hover:   rgba(197, 228, 245, 0.65);
+  --shadow-glow:         0 0 20px rgba(0, 144, 184, 0.2);
+  --shadow-glow-strong:  0 0 40px rgba(0, 144, 184, 0.35);
+  --color-nav-scrolled:  rgba(240, 247, 255, 0.92);
+  --color-nav-mobile:    rgba(240, 247, 255, 0.96);
+}
