@@ -34,7 +34,7 @@
 .dark {
   background: linear-gradient(
     180deg,
-    #060E1A 0%,
+    var(--color-section-darkest) 0%,
     var(--color-ocean-deep) 100%
   );
 }

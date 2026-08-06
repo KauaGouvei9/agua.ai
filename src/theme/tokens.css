@@ -24,6 +24,13 @@
   --color-glass:         rgba(15, 40, 71, 0.45);
   --color-glass-border:  rgba(72, 202, 228, 0.15);
   --color-glass-hover:   rgba(15, 40, 71, 0.65);
+  --color-panel-bg-start:  rgba(15, 40, 71, 0.5);
+  --color-panel-bg-end:    rgba(10, 22, 40, 0.7);
+  --color-block-bg-start:  rgba(15, 40, 71, 0.45);
+  --color-block-bg-end:    rgba(10, 22, 40, 0.6);
+  --color-section-darkest: #060E1A;
+  --color-nav-scrolled: rgba(10, 22, 40, 0.92);
+  --color-nav-mobile:   rgba(10, 22, 40, 0.96);
 
   /* ── Typography ── */
   --font-display: 'Outfit', system-ui, sans-serif;
@@ -161,12 +168,6 @@ button {
 }
 
 
-/* Nav tokens */
-:root {
-  --color-nav-scrolled: rgba(10, 22, 40, 0.92);
-  --color-nav-mobile:   rgba(10, 22, 40, 0.96);
-}
-
 /* ── Light theme ── */
 [data-theme="light"] {
   --color-ocean-deep:    #F0F7FF;
@@ -190,4 +191,9 @@ button {
   --shadow-glow-strong:  0 0 40px rgba(0, 144, 184, 0.35);
   --color-nav-scrolled:  rgba(240, 247, 255, 0.92);
   --color-nav-mobile:    rgba(240, 247, 255, 0.96);
+  --color-panel-bg-start:  rgba(197, 228, 245, 0.5);
+  --color-panel-bg-end:    rgba(220, 240, 250, 0.7);
+  --color-block-bg-start:  rgba(197, 228, 245, 0.45);
+  --color-block-bg-end:    rgba(220, 240, 250, 0.6);
+  --color-section-darkest: #C5E4F5;
 }

@@ -7,8 +7,8 @@
   max-width: 800px;
   margin: 0 auto;
   background: linear-gradient(180deg,
-      rgba(15, 40, 71, 0.5) 0%,
-      rgba(10, 22, 40, 0.7) 100%);
+      var(--color-panel-bg-start) 0%,
+      var(--color-panel-bg-end) 100%);
   border: 1px solid var(--color-glass-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
