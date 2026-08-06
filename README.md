@@ -1,21 +1,41 @@
-# agua.ai
+# Tem Água.AI?
 
-Site educativo sobre o consumo de água por trás dos serviços digitais, com foco em data centers e inteligência artificial. Foi feito como trabalho da disciplina de Computação e Meio Ambiente.
+Plataforma educacional gamificada sobre o consumo oculto de água pela inteligência artificial e data centers. Desenvolvida como projeto de extensão universitária na Universidade Federal Fluminense (UFF), pela disciplina de Computação e Meio Ambiente.
 
-A proposta é mostrar, de forma simples, que serviços como busca, vídeo e chat com IA dependem de água no mundo real, e estimar quanto seria esse consumo em situações do dia a dia.
+A proposta é mostrar, de forma simples e interativa, que serviços como busca, vídeo e chat com IA dependem de água no mundo real — e estimar quanto seria esse consumo em situações do dia a dia.
 
-## Tecnologias usadas
+**Acesse a plataforma:** [kauagouvei9.github.io/agua.ai](https://kauagouvei9.github.io/agua.ai/)
 
-- React 19 para montar a interface em componentes
-- TypeScript para dar tipagem ao código e reduzir erros em tempo de desenvolvimento
-- Vite como ferramenta de build e servidor de desenvolvimento
-- CSS Modules para escrever estilos isolados por componente
+---
 
-Não há backend nem banco de dados. Todo o cálculo da estimativa de água acontece no próprio navegador, com base em valores de referência tirados de estudos acadêmicos.
+## Sobre este fork
 
-## Como rodar
+Este repositório é um fork do projeto original desenvolvido pelo Grupo 4 da disciplina. Aqui continuo o desenvolvimento de forma independente, com novas funcionalidades, melhorias visuais e refatorações que vão além do escopo acadêmico original.
 
-Instalar as dependências:
+Minhas contribuições no projeto original incluem:
+
+- Estimador de Água (ChatPanel) — cálculo de consumo hídrico por prompt, com categorias de complexidade e multiplicadores por modelo de IA
+- Mural de Promessas — seção interativa onde o visitante registra um compromisso pessoal com o uso consciente de tecnologia
+- Modo escuro — toggle persistente entre tema escuro e claro, com hook dedicado e tokens CSS
+- Diversas correções de bugs e melhorias de interface
+
+---
+
+## Tecnologias
+
+- React 19 com componentes funcionais e hooks
+- TypeScript para tipagem estática
+- Vite como bundler e servidor de desenvolvimento
+- CSS Modules para estilos isolados por componente
+- GitHub Actions para deploy automático no GitHub Pages
+
+Não há backend. Todo o cálculo de estimativa de água acontece no navegador, com base em valores de referência de estudos acadêmicos.
+
+---
+
+## Como rodar localmente
+
+Instalar dependências:
 
 ```
 npm install
@@ -27,38 +47,64 @@ Subir o servidor de desenvolvimento:
 npm run dev
 ```
 
-Gerar a versão final para publicação:
+Acesse em `http://localhost:5173/agua.ai/`
+
+Gerar build de produção:
 
 ```
 npm run build
-npm run preview
 ```
+
+---
 
 ## Seções do site
 
-O site é uma página única dividida em quatro partes, acessíveis pelo menu fixo no topo.
-
 ### Motivação
 
-Apresenta o tema para quem está chegando agora. Explica o que é a internet por trás das telas, o que é um data center e por que esses prédios precisam de água para funcionar. O conteúdo aparece em uma linha do tempo no estilo de museu, com cartões que o visitante lê no ritmo dele.
+Apresenta o tema para quem está chegando agora. Explica o que é a internet por trás das telas, o que é um data center e por que esses prédios precisam de água para funcionar. O conteúdo aparece em uma linha do tempo no estilo de museu.
 
-### Estimador de água
+### Estimador de Água
 
-Parte interativa do site. O visitante escolhe um modelo de inteligência artificial (ChatGPT, Gemini, Claude e outros) e seleciona uma pergunta de exemplo. O sistema calcula uma estimativa de quanta água seria gasta para responder aquela pergunta e mostra o valor em mililitros ou litros, junto com uma comparação fácil de visualizar, como uma colher de chá, um copo ou uma garrafa.
+Parte interativa central do site. O visitante escolhe um modelo de IA (ChatGPT, Gemini, Grok) e seleciona uma pergunta de exemplo ou digita a sua. O sistema calcula uma estimativa de quanta água seria gasta para gerar aquela resposta e exibe o valor com equivalências do cotidiano, como colher de chá, copo ou garrafa.
 
-O cálculo se baseia em dois estudos principais: "Making AI Less Thirsty", da UC Riverside, e um artigo de Leo S. Lo, da Universidade da Virgínia. A explicação completa da metodologia fica disponível em um botão de informação dentro do próprio estimador.
+O cálculo é baseado em dois estudos principais: *Making AI Less Thirsty* (Li et al., UC Riverside, 2023) e artigo de Leo S. Lo (Universidade da Virgínia, 2025).
 
-### Impactos
+### Seu Papel (Impactos)
 
-Reúne três faces do impacto ambiental ligado à computação: escassez de água, geração de resíduos e custo energético. Cada bloco traz uma explicação curta e links externos para quem quiser se aprofundar. O objetivo é mostrar que cada serviço digital tem um custo escondido no mundo físico.
+Reúne três faces do impacto ambiental da computação: escassez de água, geração de resíduos e custo energético. Cada bloco traz uma explicação curta com referências externas.
 
 ### Quiz
 
-Questionário em formato de trilha no final do site. Cada pergunta revisa um conceito apresentado nas seções anteriores, e serve tanto para fixar o conteúdo quanto para o visitante medir o que aprendeu.
+Questionário em trilha que revisa os conceitos apresentados no site. Serve para fixar o conteúdo e medir o que o visitante aprendeu.
+
+### Mural de Promessas
+
+Espaço onde o visitante registra um compromisso pessoal com o uso mais consciente de tecnologia.
+
+---
 
 ## Organização das pastas
 
-- `src/components/` guarda os componentes de tela, separados por área: layout geral, chat do estimador, quiz e janelas modais
-- `src/content/pt/` guarda os textos do site em português, separados por seção
-- `src/domain/estimation/` guarda os cálculos da estimativa de água e as constantes usadas, como multiplicadores por modelo e tokens médios por tipo de tarefa
-- `src/theme/` guarda os estilos compartilhados: cores, espaçamentos, tipografia e fundos animados
+- `src/components/` — componentes de interface, organizados por área (layout, chat, quiz, mural, modais)
+- `src/content/pt/` — textos do site em português, separados por seção
+- `src/domain/estimation/` — lógica de cálculo da estimativa de água, constantes e multiplicadores por modelo
+- `src/hooks/` — hooks reutilizáveis (ex: `useTheme` para controle do tema claro/escuro)
+- `src/theme/` — tokens de design globais: cores, espaçamentos, tipografia e fundos animados
+
+---
+
+## Melhorias planejadas
+
+- [ ] Compartilhamento de resultado — botão para compartilhar a estimativa no WhatsApp/Instagram
+- [ ] Histórico de cálculos — acumular o consumo total dos prompts estimados na sessão
+- [ ] Internacionalização (i18n) — versão em inglês da plataforma
+- [ ] Banco de dados — persistência real do Mural de Promessas com Supabase
+
+---
+
+## Referências acadêmicas
+
+- Li et al. (2023). *Making AI Less Thirsty*. UC Riverside. [arXiv:2304.03271](https://arxiv.org/abs/2304.03271)
+- Lo, Leo S. (2025). *The environmental impact of AI*. The Conversation / University of Virginia.
+- Furtado e Cunha (2024). *Inteligência artificial, data centers e colonialismo digital*.
+- Mazziero e Basigli (2025). *Impactos ambientais invisíveis da inteligência artificial*.
