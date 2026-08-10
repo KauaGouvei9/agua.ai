@@ -90,7 +90,7 @@
   justify-content: center;
   padding: var(--space-6);
   border-radius: var(--radius-xl);
-  background: var(--color-foam-white);
+  background: #F0F7FF;
   box-shadow: var(--shadow-md);
 }
 
