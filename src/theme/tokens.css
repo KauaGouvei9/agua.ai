@@ -31,6 +31,11 @@
   --color-section-darkest: #060E1A;
   --color-nav-scrolled: rgba(10, 22, 40, 0.92);
   --color-nav-mobile:   rgba(10, 22, 40, 0.96);
+  --color-institution-bg-start: rgba(15, 40, 71, 0.5);
+  --color-institution-bg-end:   rgba(10, 22, 40, 0.65);
+  --color-mural-input-bg:      rgba(10, 22, 40, 0.5);
+  --color-mural-input-name-bg: rgba(10, 22, 40, 0.35);
+  --color-mural-card-blue-bg:  rgba(22, 58, 95, 0.6);
 
   /* ── Typography ── */
   --font-display: 'Outfit', system-ui, sans-serif;
@@ -176,7 +181,7 @@ button {
   --color-water-bright:  #0090B8;
   --color-water-soft:    #2AB5D0;
   --color-water-pale:    #5CCCE0;
-  --color-foam:          #A8E6F0;
+  --color-foam:          #0090B8;
   --color-foam-white:    #0A1628;
   --color-text-primary:  #0A1628;
   --color-text-secondary:#163A5F;
@@ -196,4 +201,9 @@ button {
   --color-block-bg-start:  rgba(197, 228, 245, 0.45);
   --color-block-bg-end:    rgba(220, 240, 250, 0.6);
   --color-section-darkest: #C5E4F5;
+  --color-institution-bg-start: rgba(197, 228, 245, 0.5);
+  --color-institution-bg-end:   rgba(220, 240, 250, 0.65);
+  --color-mural-input-bg:      rgba(197, 228, 245, 0.5);
+  --color-mural-input-name-bg: rgba(197, 228, 245, 0.35);
+  --color-mural-card-blue-bg:  rgba(197, 228, 245, 0.6);
 }
